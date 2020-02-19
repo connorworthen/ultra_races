@@ -1,16 +1,21 @@
-class UltraRaces::Ultra
+class Ultra
+  attr_accessor :name, :description, :location
 
-    attr_accessor :date, :race, :location
+  @@all = []
 
-    @@all = []
+  def initialize(name, description)
+    @name = name
+    @description = description
+    @@all << self
+  end
 
-    def initialize(date=nil, race=nil, location=nil)
-        @date = date
-        @race = race
-        @location = location
-    end
-
-    def self.all
-        @@all
-    end
+  def self.all
+    @@all
+  end
 end
+
+# def initialize(name=nil, description=nil)
+#     @name = name
+#     @description = description
+#     self
+# end

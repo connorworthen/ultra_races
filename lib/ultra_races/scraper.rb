@@ -1,17 +1,12 @@
-class UltraRaces::Scraper
-
-    def self.scarp
-      @doc = Nokogiri::HTML(open("https://www.runningintheusa.com/classic/list/map/ultra/upcoming/ca"))
-      @scraping_block = @doc.css("")
-    end
-  
-    def self.scrape_races
-          @scraping_block.each do |ele|
-          race = ele.css("").text.strip
-          date = ele.css("").text.strip
-          location = ele.css("").text.strip
-          ultra = UltraRaces::Ultra.new(race, date, location)
-          UltraRaces::Ultra.all << ultra
-      end
+class Scraper
+  def self.firstscrape
+    url = open("https://hiconsumption.com/toughest-races-in-the-world/")
+    doc = Nokogiri::HTML(url)
+    ultra_rows = doc.css("div.super_capped")[0..16]
+    ultra_rows.each do |row|
+      name = row.css("h2").text
+      description = row.css("p").text
+      ultra = Ultra.new(name, description)
     end
   end
+end
