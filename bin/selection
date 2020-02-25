@@ -1,8 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require 'bundler/setup' # require is a method that is used when you want to reference and execute code that is not written in your current file.
+require 'bundler/setup'
 require_relative '../lib/ultra_races'
-# require_relative should be used for referring to files within your directory.
+
 UltraRaces::CLI.new.call
-# The general rule of thumb is require should be used for external files, like gems
