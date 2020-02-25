@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Bundler.require(:default, :development)
 
 require_relative './ultra_races/version.rb'
